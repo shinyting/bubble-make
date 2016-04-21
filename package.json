@@ -1,0 +1,29 @@
+{
+  "name": "bubble-make",
+  "version": "1.0.0",
+  "description": "实现一个泡泡发生器的效果，点击鼠标，产生泡泡，泡泡在画面中随意漂浮，达到生命极限即可自动消失",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shinyting/bubble-make.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shinyting/bubble-make/issues"
+  },
+  "homepage": "https://github.com/shinyting/bubble-make#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "bower": "^1.7.9",
+    "cookie-parser": "^1.4.1",
+    "debug": "^2.2.0",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "morgan": "^1.7.0",
+    "serve-favicon": "^2.3.0",
+    "supervisor": "^0.10.0"
+  }
+}
