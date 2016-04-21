@@ -1,1 +1,8 @@
-common.css
+body {
+	background: #272822;
+	color: #fff;
+}
+canvas {
+	display: block;
+	margin: 0 auto;
+}
