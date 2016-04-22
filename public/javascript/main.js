@@ -54,6 +54,7 @@ function onMouseDown (e) {
 	mx = e.clientX - pcl;
 	my = e.clientY - pct;
 	rcolor = randomColor();
+	scolor = randomColor();
 	bubble.init();
 	paintloop();
 }

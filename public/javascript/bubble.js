@@ -29,9 +29,11 @@ bubbleObj.prototype.init = function () {
 bubbleObj.prototype.draw = function () {
 	this.al -= 0.003;
 	pctx.save();
+	pctx.lineWidth = 1;
 	if (this.al > 0) {
 		for (var i = 0; i < this.num; i ++) {
-			var rfill = 'rgba(' + rcolor.r + ',' + rcolor.g + ',' + rcolor.b + ',' + this.al +')';
+			var rfill = 'rgba(' + rcolor.r + ',' + rcolor.g + ',' + rcolor.b + ',' + this.al + ')';
+			var sfill = 'rgba(' + scolor.r + ',' + scolor.g + ',' + scolor.b + ',' + this.al + ')';
 			this.ox[i] += this.rate[i]*deltaTime * Math.random()*0.1;
 			this.oy[i] += this.rate[i]*deltaTime * Math.random()*0.1;
 			this.or[i] += Math.random()*0.1;
@@ -43,6 +45,8 @@ bubbleObj.prototype.draw = function () {
 			pctx.closePath();
 			pctx.fillStyle = rfill;
 			pctx.fill();
+			pctx.strokeStyle = sfill;
+			pctx.stroke();
 		}
 	}
 	else {
