@@ -34,8 +34,8 @@ bubbleObj.prototype.draw = function () {
 		for (var i = 0; i < this.num; i ++) {
 			var rfill = 'rgba(' + rcolor.r + ',' + rcolor.g + ',' + rcolor.b + ',' + this.al + ')';
 			var sfill = 'rgba(' + scolor.r + ',' + scolor.g + ',' + scolor.b + ',' + this.al + ')';
-			this.ox[i] += this.rate[i]*deltaTime * Math.random()*0.1;
-			this.oy[i] += this.rate[i]*deltaTime * Math.random()*0.1;
+			this.ox[i] += this.rate[i]*deltaTime * Math.random()*0.5;
+			this.oy[i] += this.rate[i]*deltaTime * Math.random()*0.001;
 			this.or[i] += Math.random()*0.1;
 			if (this.or[i] > 30) {
 				this.or[i] = 30;
