@@ -6,8 +6,8 @@ var mWidth = $(window).width();
 var mHeight = $(window).height();
 
 //time
-var lastTime = Date.now();
-var deltaTime = 0;
+var lastTime;
+var deltaTime;
 
 //mouse location
 var mx;
@@ -32,7 +32,7 @@ function initPaint () {
 
 	$(paintF).attr('width', mWidth-100);
 	$(paintF).attr('height', mHeight-100);
-
+	bubble = new bubbleObj;
 	$(paintF).on('click', onMouseDown);
 	
 }
@@ -53,7 +53,6 @@ function onMouseDown (e) {
 	mx = e.clientX - pcl;
 	my = e.clientY - pct;
 	rcolor = randomColor();
-	bubble = new bubbleObj;
 	bubble.init();
 	paintloop();
 }

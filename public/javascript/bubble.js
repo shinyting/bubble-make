@@ -3,23 +3,18 @@ var bubbleObj = function () {
 	this.oy = [];
 	this.or = [];
 	this.al = [];
+	this.rate = [];
 }
 
 bubbleObj.prototype.num = 10;
 
 bubbleObj.prototype.init = function () {
 	for (var i = 0; i < this.num; i ++) {
-		this.ox[i] = mx;
-		this.oy[i] = my;
-		this.or[i] = 5;
+		this.rate[i] = Math.random()*2-1;
+		this.ox[i] = mx + this.rate[i]*500*Math.random();
+		this.oy[i] = my + this.rate[i]*800*Math.random();
+		this.or[i] = 8;
 		this.al[i] = 1;
-		// pctx.save();
-		// pctx.beginPath();
-		// pctx.arc(this.ox[i], this.oy[i], this.or[i], 0, Math.PI*2, true);
-		// // pctx.closePath();
-		// pctx.fillStyle = 'rgb(' + rcolor.r + ',' + rcolor.g + ',' + rcolor.b + ')';
-		// pctx.fill();
-		// pctx.restore();
 	}
 	
 
@@ -32,17 +27,18 @@ bubbleObj.prototype.init = function () {
 }
 
 bubbleObj.prototype.draw = function () {
+	pctx.save();
 	for (var i = 0; i < this.num; i ++) {
-		this.al[i] -= deltaTime*0.0001+0.001;
+		this.al[i] -= 0.005;
 		var rfill = 'rgba(' + rcolor.r + ',' + rcolor.g + ',' + rcolor.b + ',' + this.al[i] +')';
-		this.ox[i] += deltaTime * 0.03;
-		this.oy[i] += deltaTime * 0.03;
-		this.or[i] += deltaTime * 0.01;
+		this.ox[i] += this.rate[i]*deltaTime * 0.008;
+		this.oy[i] += this.rate[i]*deltaTime * 0.005;
+		this.or[i] += Math.random();
 		pctx.beginPath();
 		pctx.arc(this.ox[i], this.oy[i], this.or[i], 0, Math.PI*2, true);
 		pctx.closePath();
 		pctx.fillStyle = rfill;
 		pctx.fill();
 	}
-	
+	pctx.restore();
 }
