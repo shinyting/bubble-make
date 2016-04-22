@@ -22,6 +22,8 @@ var flag;
 
 var rcolor;
 
+var animate;
+
 $(function () {
 	initPaint();
 });
@@ -29,7 +31,6 @@ $(function () {
 function initPaint () {
 	paintF = $('#canvas01');
 	pctx = $(paintF)[0].getContext('2d');
-
 	$(paintF).attr('width', mWidth-100);
 	$(paintF).attr('height', mHeight-100);
 	bubble = new bubbleObj;
@@ -38,7 +39,7 @@ function initPaint () {
 }
 
 function paintloop () {
-	window.animFranme(paintloop);
+	animate = window.animFranme(paintloop);
 	var nowTime = Date.now();
 	deltaTime = nowTime - lastTime;
 	lastTime = nowTime;
