@@ -6,7 +6,7 @@ var bubbleObj = function () {
 	this.rate = [];
 }
 
-bubbleObj.prototype.num = 10;
+bubbleObj.prototype.num = 20;
 
 bubbleObj.prototype.init = function () {
 	this.al = 1;

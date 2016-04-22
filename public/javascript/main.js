@@ -35,7 +35,6 @@ function initPaint () {
 	$(paintF).attr('height', mHeight-100);
 	bubble = new bubbleObj;
 	$(paintF).on('click', onMouseDown);
-	
 }
 
 function paintloop () {
