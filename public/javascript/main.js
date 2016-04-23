@@ -1,12 +1,14 @@
 var paintF;
 var pctx;
+var paintS;
+var psctx;
 
 //设置canvas宽高
-var mWidth = $(window).width();
-var mHeight = $(window).height();
+var mWidth = $(window).width() - 100;
+var mHeight = $(window).height() - 100;
 
 //time
-var lastTime;
+var lastTime = Date.now();
 var deltaTime;
 
 //mouse location
@@ -17,6 +19,7 @@ var pcl;
 var pct;
 
 var bubble;
+var grass;
 
 var flag;
 
@@ -30,20 +33,39 @@ $(function () {
 
 function initPaint () {
 	paintF = $('#canvas01');
+	paintS = $('#canvas02');
 	pctx = $(paintF)[0].getContext('2d');
-	$(paintF).attr('width', mWidth-100);
-	$(paintF).attr('height', mHeight-100);
+	psctx = $(paintS)[0].getContext('2d');
+	$(paintF).attr('width', mWidth);
+	$(paintF).attr('height', mHeight);
+	$(paintS).attr('width', mWidth);
+	$(paintS).attr('height', mHeight);
+
 	bubble = new bubbleObj;
 	$(paintF).on('click', onMouseDown);
+
+	grass = new grassObj;
+	grass.init();
+
+	paintGrass();
 }
 
 function paintloop () {
-	animate = window.animFranme(paintloop);
+	animate = window.animFrame(paintloop);
 	var nowTime = Date.now();
 	deltaTime = nowTime - lastTime;
 	lastTime = nowTime;
 	pctx.clearRect(0, 0, mWidth, mHeight);
 	bubble.draw();
+}
+
+function paintGrass () {
+	animate = window.animFrame(paintGrass);
+	var nowTime = Date.now();
+	deltaTime = nowTime - lastTime;
+	lastTime = nowTime;
+	psctx.clearRect(0, 0, mWidth, mHeight);
+	grass.draw();
 }
 
 function onMouseDown (e) {
@@ -58,7 +80,7 @@ function onMouseDown (e) {
 	paintloop();
 }
 
-window.animFranme = (function () {
+window.animFrame = (function () {
 	return window.requestAnimationFrame || window.webkitRequestAnimationFrame || 
 		window.mozRequestAnimationFrame || window.oRequsetAnimationFrame || 
 		window.msRequestAnimationFrame || 

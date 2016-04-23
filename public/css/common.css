@@ -6,3 +6,18 @@ canvas {
 	display: block;
 	margin: 0 auto;
 }
+
+.animbox {
+	position: relative;
+}
+.canvas01 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 10;
+}
+.canvas02 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
