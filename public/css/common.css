@@ -6,6 +6,23 @@ canvas {
 	display: block;
 	margin: 0 auto;
 }
+.pull-left {
+	float: left;
+}
+.pull-right {
+	float: right;
+}
+.clearfix:before,
+.clearfix:after {
+	display: table;
+	content: " ";
+}
+.clearfix:after {
+	clear: both;
+}
+.none {
+	display: none;
+}
 
 .animbox {
 	position: relative;
@@ -20,4 +37,51 @@ canvas {
 	position: absolute;
 	left: 0px;
 	top: 0px;
+}
+.chatwrap {
+	position: relative;
+	width: 400px;
+	height: 550px;
+	z-index: 100;
+	padding-left: 10px;
+}
+.chatbox {
+	width: 100%;
+	border: 1px solid #d4d4d4;
+	height: 400px;
+}
+.mymsg {
+	width: 100%;
+	height: 100px;
+	border-top: none;
+	background: transparent;
+	border-color: #d4d4d4;
+	padding: 10px;
+}
+
+.mask {
+	background: rgba(0,0,0,0.5);
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100001;
+}
+.enform {
+	width: 500px;
+	margin: 0 auto;
+	margin-top: 100px;
+}
+.nickname {
+	width: 200px;
+	height: 35px;
+	line-height: 35px;
+	padding: 0px 5px;
+	background: rgba(255,255,255,0.9);
+	border: none;
+}
+.setname {
+	margin-top: 5px;
+	padding: 3px 10px;
 }

@@ -16,14 +16,6 @@ bubbleObj.prototype.init = function () {
 		this.oy[i] = my + (Math.random()*2-1)*250;
 		this.or[i] = 8*Math.random() + 1;
 	}
-	
-
-	// pctx.beginPath();
-	// pctx.moveTo(this.ox, this.oy);
-	// pctx.lineTo(0, 0);
-	// pctx.lineWidth = 2;
-	// pctx.strokeStyle = '#fff';
-	// pctx.stroke();
 }
 
 bubbleObj.prototype.draw = function () {
