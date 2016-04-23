@@ -168,11 +168,11 @@ window.animFrame = (function () {
 
 function randomColor () {
 	var col = [0, 1, 2];
-	col[0] = Math.random() * 100 + 155;
+	col[0] = Math.random() * 255;
 	col[0] = col[0].toFixed();
-	col[1] = Math.random() * 100 + 155;
+	col[1] = Math.random() * 255;
 	col[1] = col[1].toFixed();
-	col[2] = Math.random() * 100 + 155;
+	col[2] = Math.random() * 255;
 	col[2] = col[2].toFixed();
 	return {'r': col[0], 'g': col[1], 'b': col[2]};
 }
