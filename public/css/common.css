@@ -23,6 +23,16 @@ canvas {
 .none {
 	display: none;
 }
+.blue {
+	color: #3490d3;
+}
+.gray {
+	color: #8f8f8f;
+}
+.purple {
+	color: #5f1f91;
+}
+
 
 .animbox {
 	position: relative;
@@ -49,6 +59,8 @@ canvas {
 	width: 100%;
 	border: 1px solid #d4d4d4;
 	height: 400px;
+	padding: 5px;
+	overflow: scroll;
 }
 .mymsg {
 	width: 100%;

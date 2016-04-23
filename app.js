@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var http = require('http');
 var cons = require('consolidate');
+var io = require('socket.io')(80);
 
 var routes = require('./routes/index');
 
@@ -24,6 +25,32 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+
+var userArray = [];
+io.on('connection', function (socket) {
+	socket.emit('users', {users: userArray});
+	socket.on('myMsg', function (data) {
+		socket.broadcast.emit('showMsg', data);
+	});
+
+	socket.on('addUser', function (data) {
+		if (userArray.indexOf(data.uname) > -1) {
+			socket.emit('nameExisted');
+		}
+		else {
+			socket.userIndex = userArray.length;
+			socket.nickname = data.uname;
+			userArray.push(data.uname);
+			io.emit('showUser', {users: userArray, newone: data.uname});
+		}
+	});
+	socket.on('disconnect', function () {
+		if (userArray.length > 0) {
+			userArray.splice(socket.userIndex, 1);
+			socket.broadcast.emit('removeUser', {rname: socket.nickname, users: userArray});
+		}
+	});
+});
 
 app.use(function (req, res, next) {
 	var err = new Error('not found');
