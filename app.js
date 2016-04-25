@@ -1,3 +1,5 @@
+require('./db.js');
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -7,6 +9,8 @@ var bodyParser = require('body-parser');
 var http = require('http');
 var cons = require('consolidate');
 var io = require('socket.io')(80);
+
+var User = require('./models/userModel.js');
 
 var routes = require('./routes/index');
 
@@ -38,6 +42,12 @@ io.on('connection', function (socket) {
 			socket.emit('nameExisted');
 		}
 		else {
+			var userMongo = new User({name: data.uname});
+			userMongo.save(function (err, user) {
+				if (!err) {
+					console.log('1');
+				}
+			})
 			socket.userIndex = userArray.length;
 			socket.nickname = data.uname;
 			userArray.push(data.uname);

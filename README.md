@@ -6,3 +6,16 @@
 
 requsetAnimationFrame实现动画效果  
 同时，cancelAnimationFrame停止执行的动画
+
+###聊天室功能集中到该动画项目中
+
+###mongoose集中到该动画项目中
+
+###mongodb
+document struture: field-and-value paris 键值对的形式存储数据
+{
+	field1: value1,
+	field2: value2,
+	...
+	filedN: valueN
+}
