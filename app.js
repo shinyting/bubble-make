@@ -10,6 +10,7 @@ var bodyParser = require('body-parser');
 var http = require('http');
 var cons = require('consolidate');
 var io = require('socket.io')(80);
+var moment = require('moment');
 
 var User = require('./models/userModel.js');
 
@@ -44,7 +45,7 @@ io.on('connection', function (socket) {
 		}
 		else {
 			//把用户信息保存在mongodb
-			var userMongo = new User({name: data.uname, loginTime: Date.now()});
+			var userMongo = new User({name: data.uname, loginTime: moment().format('YYYY-MM-DD')});
 			userMongo.save(function (err, user) {
 				if (!err) {
 					console.log('saved');

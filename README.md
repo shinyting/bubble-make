@@ -48,5 +48,7 @@ db.collection.replaceOne(
 	{name: 'amy', age: 25, status: 'enrolled'} //replacement document
 )
 
-db.collection.deleteOne({status: 'rejected'});  //limit 1
-db.collection.deleteMany({status: 'rejected'}); //no limit
+db.collection.deleteOne({status: 'rejected'});  //limit 1  
+db.collection.deleteMany({status: 'rejected'}); //no limit  
+db.collection.remove({status: 'D'});  
+
