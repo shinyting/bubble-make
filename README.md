@@ -27,3 +27,26 @@ db.collection.find()
 eg: db.users.find({age: {$gt:18}}, {name: 1, address: 1}).limit(5)  
 在users中查找age大于18的数据，并且返回的数据为小于等于5条的{_id: 'x', name: 'x', address: 'x'};  
 
+insert, update, delete 
+
+db.collection.insertOne()  
+db.collection.insertMany()  
+db.collection.insert()  
+
+db.collection.updateOne( //limit 1
+	{age: {$lt: 18}}, //update filter
+	{$set: {status: 'reject'}} //update action
+)
+
+db.collection.updateMany( //no limit
+	{age: {$lt: 18}}, //update filter
+	{$set: {status: 'reject'}} //update action
+)  
+
+db.collection.replaceOne(
+	{name: 'sue'},  //replace filter
+	{name: 'amy', age: 25, status: 'enrolled'} //replacement document
+)
+
+db.collection.deleteOne({status: 'rejected'});  //limit 1
+db.collection.deleteMany({status: 'rejected'}); //no limit
