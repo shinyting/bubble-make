@@ -1,4 +1,5 @@
-require('./db.js');
+var db = require('./db.js');
+var userCollection = db.collection('users');
 
 var express = require('express');
 var path = require('path');
@@ -42,12 +43,20 @@ io.on('connection', function (socket) {
 			socket.emit('nameExisted');
 		}
 		else {
-			var userMongo = new User({name: data.uname});
+			//把用户信息保存在mongodb
+			var userMongo = new User({name: data.uname, loginTime: Date.now()});
 			userMongo.save(function (err, user) {
 				if (!err) {
-					console.log('1');
+					console.log('saved');
+					//如果保存成功，把user表的所有内容查出来
+					userCollection.find({}).toArray(function (err, result) {
+						if (!err) {
+							console.log(result);
+						}
+					});
 				}
-			})
+			});
+			//用户信息保存在服务端处理
 			socket.userIndex = userArray.length;
 			socket.nickname = data.uname;
 			userArray.push(data.uname);

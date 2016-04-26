@@ -18,4 +18,12 @@ document struture: field-and-value paris 键值对的形式存储数据
 	field2: value2,
 	...
 	filedN: valueN
-}
+}  
+BSON data types  
+
+
+###mongodb CURD操作
+db.collection.find()  
+eg: db.users.find({age: {$gt:18}}, {name: 1, address: 1}).limit(5)  
+在users中查找age大于18的数据，并且返回的数据为小于等于5条的{_id: 'x', name: 'x', address: 'x'};  
+
