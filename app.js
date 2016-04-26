@@ -45,7 +45,13 @@ io.on('connection', function (socket) {
 		}
 		else {
 			//把用户信息保存在mongodb
-			var userMongo = new User({name: data.uname, loginTime: moment().format('YYYY-MM-DD')});
+			var userMongo = new User(
+				{
+					name: data.uname, 
+					loginTime: moment().format('YYYY-MM-DD'),
+					brands: [{logo: 'a', title: 'atext'}, {logo: 'b', title: 'btext'}, {logo: 'c', title: 'ctext'}]
+				}
+			);
 			userMongo.save(function (err, user) {
 				if (!err) {
 					console.log('saved');
